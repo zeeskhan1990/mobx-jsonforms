@@ -1,0 +1,57 @@
+{
+  "name": "@mobx-jsonforms/core",
+  "version": "0.0.0",
+  "description": "Core module of JSON Forms",
+  "repository": "https://github.com/eclipsesource/jsonforms",
+  "bugs": "https://github.com/eclipsesource/jsonforms/issues",
+  "homepage": "http://jsonforms.io/",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "bundle": "webpack --config ./webpack.build.js --env=production --display-error-details",
+    "build": "tsc",
+    "build-og": "tsc",
+    "clean": "rm -rf lib coverage dist .nyc_output 2> /dev/null",
+    "lint": "tslint --project ../../tslint.json --exclude src/models/jsonSchema.ts",
+    "report": "../../node_modules/.bin/nyc report --reporter=html",
+    "test": "tsc --project test/tsconfig.test.json && ava",
+    "test-cov": "tsc --project test/tsconfig.test.json && ../../node_modules/.bin/nyc ava",
+    "doc": "../../node_modules/.bin/typedoc --name 'JSON Forms Core' --mode file --excludeExternals --theme ../../typedoc-jsonforms --out docs src"
+  },
+  "ava": {
+    "verbose": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "ajv": "^4.11.2",
+    "lodash": "4.17.4",
+    "mobx": "^4.1.0",
+    "mobx-react": "^5.0.0",
+    "redux": "^3.7.2",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "document-register-element": "^1.7.0",
+    "jsdom": "^11.5.1",
+    "jsdom-global": "^3.0.2",
+    "react-dom": "^16.2.0",
+    "redux-mock-store": "1.4.0"
+  }
+}

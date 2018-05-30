@@ -1,0 +1,16 @@
+language: node_js
+
+node_js:
+  - "6"
+
+install:
+  - npm install
+  - lerna bootstrap --hoist
+
+script:
+  - lerna run build
+  - lerna run bundle
+  - lerna run test-cov
+
+after_success:
+    - 'npm run merge-report && cat coverage/lcov.info | ./node_modules/.bin/coveralls'
