@@ -1,11 +1,11 @@
 {
   "name": "jsonforms-react-seed",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@mobx-jsonforms/core": "^0.0.0",
-    "@mobx-jsonforms/material-renderers": "^0.0.0",
-    "@mobx-jsonforms/react": "^0.0.0",
+    "@mobx-jsonforms/core": "^0.0.1",
+    "@mobx-jsonforms/material-renderers": "^0.0.1",
+    "@mobx-jsonforms/react": "^0.0.1",
     "material-ui": "1.0.0-beta.25",
     "material-ui-icons": "^1.0.0-beta.17",
     "material-ui-pickers": "1.0.0-beta.12",

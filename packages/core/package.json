@@ -1,6 +1,6 @@
 {
   "name": "@mobx-jsonforms/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Core module of JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
