@@ -138,11 +138,15 @@ store.dispatch(Actions.init(data, schema, uischema)); */
 // Uncomment this line (and respective import) to register our custom renderer
 //store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
 
+const store = {}
+
+const allStores = {...store, ...jsonFormsStore}
+
 @observer
 export class RootComponent extends React.Component {
   render() {
     return (
-      <Provider jsonFormsStore={jsonFormsStore}>
+      <Provider {...allStores}>
         <App />
       </Provider>
     );
