@@ -6,15 +6,13 @@
     "@mobx-jsonforms/core": "^0.0.2",
     "@mobx-jsonforms/material-renderers": "^0.0.2",
     "@mobx-jsonforms/react": "^0.0.2",
-    "material-ui": "1.0.0-beta.25",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "material-ui-pickers": "1.0.0-beta.12",
+    "material-ui": "1.0.0-beta.42",
+    "material-ui-icons": "1.0.0-beta.36",
+    "material-ui-pickers": "1.0.0-rc.9",
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "react-scripts": "1.0.17",
-    "redux": "^3.7.2"
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

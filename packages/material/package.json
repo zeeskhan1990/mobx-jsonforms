@@ -60,12 +60,11 @@
   "dependencies": {
     "@mobx-jsonforms/core": "^0.0.2",
     "@mobx-jsonforms/react": "^0.0.2",
-    "material-ui": "1.0.0-beta.25",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "material-ui-pickers": "1.0.0-beta.12",
+    "material-ui": "1.0.0-beta.42",
+    "material-ui-icons": "1.0.0-beta.36",
+    "material-ui-pickers": "1.0.0-rc.9",
     "moment": "^2.20.1",
-    "react": "^16.2.0",
-    "redux": "^3.7.2"
+    "react": "^16.2.0"
   },
   "devDependencies": {
     "ava": "^0.24.0",
@@ -75,8 +74,6 @@
     "jsdom": "^11.5.1",
     "jsdom-global": "^3.0.2",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "redux-mock-store": "1.4.0",
     "source-map-loader": "^0.2.3",
     "ts-jest": "^22.4.1",
     "ts-loader": "^3.2.0",

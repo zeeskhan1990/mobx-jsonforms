@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider, observer } from 'mobx-react';
+import { extendObservable } from 'mobx';
 import { materialFields, materialRenderers } from '@mobx-jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester'
@@ -137,10 +138,24 @@ store.dispatch(Actions.init(data, schema, uischema)); */
 //store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
 
 
+class Store {
+	constructor(prop) {
+		extendObservable(this, {
+    		prop
+    });
+	}
+}
+
+const stores = { 
+  storeOne: new Store('Property from storeOne'),
+  storeTwo: new Store('Property  from storeTwo'),
+  jsonFormsStore: jsonFormsStore
+}
+
 const RootComponent = observer(class RootComponent extends React.Component {
   render() {
     return (
-      <Provider jsonFormsStore={jsonFormsStore}>
+      <Provider {...stores}>
         <App />
       </Provider>
     );
