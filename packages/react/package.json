@@ -1,6 +1,6 @@
 {
   "name": "@mobx-jsonforms/react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React module of JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
@@ -39,11 +39,11 @@
     ]
   },
   "dependencies": {
-    "@mobx-jsonforms/core": "^0.0.2",
+    "@mobx-jsonforms/core": "^0.0.3",
     "lodash": "4.17.4",
-    "react": "^16.2.0",
     "mobx": "^4.1.0",
-    "mobx-react": "^5.0.0"
+    "mobx-react": "^5.0.0",
+    "react": "^16.2.0"
   },
   "devDependencies": {
     "document-register-element": "^1.7.0",
