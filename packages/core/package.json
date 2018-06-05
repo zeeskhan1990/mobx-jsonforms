@@ -40,18 +40,16 @@
     ]
   },
   "dependencies": {
-    "ajv": "^4.11.2",
+    "ajv": "^6.0.0",
     "lodash": "4.17.4",
     "mobx": "^4.1.0",
     "mobx-react": "^5.0.0",
-    "redux": "^3.7.2",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
     "document-register-element": "^1.7.0",
     "jsdom": "^11.5.1",
     "jsdom-global": "^3.0.2",
-    "react-dom": "^16.2.0",
-    "redux-mock-store": "1.4.0"
+    "react-dom": "^16.2.0"
   }
 }

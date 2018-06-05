@@ -27,13 +27,14 @@ import {
   ControlElement,
   Helpers
 } from '@mobx-jsonforms/core';
-import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
-import Toolbar from 'material-ui/Toolbar';
-import Tooltip from 'material-ui/Tooltip';
-import Typography from 'material-ui/Typography';
-import AddIcon from 'material-ui-icons/Add';
-import DeleteIcon from 'material-ui-icons/Delete';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Hidden from '@material-ui/core/Hidden';
 import { ValidationIcon } from './ValidationIcon';
 
 export const TableToolbar = (
@@ -56,17 +57,19 @@ export const TableToolbar = (
     <Toolbar hidden={true}>
       <Grid container alignItems='center' justify='space-between'>
         <Grid item>
-          <Typography type='title'>{label}</Typography>
+          <Typography variant='title'>{label}</Typography>
         </Grid>
-        <Grid item hidden={{smUp: allErrors.length === 0}}>
-          <ValidationIcon id='tooltip-validation' errorMessages={allErrors}/>
-        </Grid>
+        <Hidden smUp={allErrors.length === 0}>
+          <Grid item>
+            <ValidationIcon id='tooltip-validation' errorMessages={allErrors}/>
+          </Grid>
+        </Hidden>
         <Grid item>
           <Grid container>
             <Grid item>
               <Tooltip id='tooltip-add' title={`Add to ${labelObject.text}`} placement='bottom'>
                 <Button
-                  fab
+                  variant='fab'
                   color='primary'
                   aria-label={`Add to ${labelObject.text}`}
                   onClick={addItem(path)}
@@ -78,7 +81,7 @@ export const TableToolbar = (
             <Grid item>
               <Tooltip title='Delete'>
                 <Button
-                  fab
+                  variant='fab'
                   aria-label={`Delete`}
                   disabled={numSelected === 0}
                   onClick={openConfirmDeleteDialog}

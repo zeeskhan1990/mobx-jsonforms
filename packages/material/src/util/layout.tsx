@@ -29,7 +29,8 @@ import {
     UISchemaElement,
   } from '@mobx-jsonforms/core';
 import { JsonForms } from '@mobx-jsonforms/react';
-import Grid from 'material-ui/Grid';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 
 const renderChildren = (
     elements: UISchemaElement[],
@@ -62,9 +63,11 @@ export const MaterialLayoutRenderer = (
     return null;
   } else {
     return (
-      <Grid container hidden={{ xsUp: !visible }} direction={direction}>
-        {renderChildren(elements, schema, path)}
-      </Grid>
+      <Hidden xsUp={!visible}>
+        <Grid container direction={direction}>
+          {renderChildren(elements, schema, path)}
+        </Grid>
+      </Hidden>
     );
   }
 };

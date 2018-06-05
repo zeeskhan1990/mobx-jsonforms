@@ -39,7 +39,7 @@ import {
   rankWith
 } from '@mobx-jsonforms/core';
 import { Control, createPropsForItem} from '@mobx-jsonforms/react';
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
 import { inject, observer } from 'mobx-react';
 
 export class MaterialNativeControl extends Control<ControlProps, ControlState> {

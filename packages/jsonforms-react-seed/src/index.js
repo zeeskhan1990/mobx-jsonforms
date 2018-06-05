@@ -121,21 +121,36 @@ jsonformsCore.registerRenderer(ratingControlTester, RatingControl, jsonFormsStor
 
 
 
-class Store {
-   	constructor(prop) {
-   		extendObservable(this, {
-       		prop
-       });
-   	}
-   }
-   
-   const stores = { 
-     storeOne: new Store('Property from storeOne'),
-     storeTwo: new Store('Property  from storeTwo'),
-     jsonFormsStore: jsonFormsStore
-   }
-   
+/* const store = createStore(
+  combineReducers({ jsonforms: jsonformsReducer() }),
+  {
+    jsonforms: {
+      fields: materialFields,
+      renderers: materialRenderers
+    },
+  }
+);
 
+store.dispatch(Actions.init(data, schema, uischema)); */
+
+
+// Uncomment this line (and respective import) to register our custom renderer
+//store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
+
+
+class Store {
+	constructor(prop) {
+		extendObservable(this, {
+    		prop
+    });
+	}
+}
+
+const stores = { 
+  storeOne: new Store('Property from storeOne'),
+  storeTwo: new Store('Property  from storeTwo'),
+  jsonFormsStore: jsonFormsStore
+}
 
 const RootComponent = observer(class RootComponent extends React.Component {
   render() {

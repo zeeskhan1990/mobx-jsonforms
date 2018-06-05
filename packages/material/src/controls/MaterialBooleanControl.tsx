@@ -32,7 +32,7 @@ import {
 } from '@mobx-jsonforms/core';
 import {createPropsForItem } from '@mobx-jsonforms/react';
 
-import { FormControlLabel } from 'material-ui/Form';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import MaterialBooleanField from '../fields/MaterialBooleanField';
 import { inject, observer } from 'mobx-react';

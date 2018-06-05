@@ -34,7 +34,7 @@ import {
 } from '@mobx-jsonforms/core';
 import { StatelessRenderer, createPropsForItem } from '@mobx-jsonforms/react';
 
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 import { inject, observer } from 'mobx-react';
 
 /**
@@ -54,7 +54,7 @@ export const MaterialLabelRenderer: StatelessRenderer<RendererProps> =
       style.display = 'none';
     }
     return (
-      <Typography type='title' style={style}>
+      <Typography variant='title' style={style}>
         {labelElement.text !== undefined && labelElement.text !== null && labelElement.text}
       </Typography>
     );

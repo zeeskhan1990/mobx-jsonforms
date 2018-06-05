@@ -37,8 +37,9 @@ import {
 } from '@mobx-jsonforms/core';
 import { Control, DispatchField, createPropsForItem } from '@mobx-jsonforms/react';
 
-import { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText'
 import { inject, observer } from 'mobx-react';
 
 export class MaterialInputControl extends Control<ControlProps, ControlState> {

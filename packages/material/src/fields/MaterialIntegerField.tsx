@@ -32,7 +32,7 @@ import {
   rankWith
 } from '@mobx-jsonforms/core';
 import { createPropsForItem } from '@mobx-jsonforms/react';
-import Input from 'material-ui/Input';
+import Input from '@material-ui/core/Input';
 import { inject, observer } from 'mobx-react';
 
 export const MaterialIntegerField = (props: FieldProps) => {

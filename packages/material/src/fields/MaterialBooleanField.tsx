@@ -32,7 +32,7 @@ import {
   rankWith
 } from '@mobx-jsonforms/core';
 import { createPropsForItem } from '@mobx-jsonforms/react';
-import Checkbox from 'material-ui/Checkbox';
+import Checkbox from '@material-ui/core/Checkbox';
 import { inject, observer } from 'mobx-react';
 
 export const MaterialBooleanField = (props: FieldProps) => {

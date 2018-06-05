@@ -32,14 +32,14 @@ import {
 import {RendererComponent, createPropsForItem } from '@mobx-jsonforms/react';
 import { TableToolbar } from './TableToolbar';
 import { MaterialTableControl } from './MaterialTableControl';
-import Button from 'material-ui/Button';
-import Dialog, {
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from 'material-ui/Dialog';
-import Grid from 'material-ui/Grid';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Hidden from '@material-ui/core/Hidden';
+import Grid from '@material-ui/core/Grid';
 import { inject, observer } from 'mobx-react';
 
 export class MaterialArrayControlRenderer extends RendererComponent<TableControlProps, TableState> {
@@ -70,38 +70,40 @@ export class MaterialArrayControlRenderer extends RendererComponent<TableControl
     const selectedCount = _.filter(this.state.selected, v => v).length;
 
     return (
-      <Grid container direction='column' hidden={{ xsUp: !visible }} spacing={0}>
-        <Grid item>
-          <TableToolbar {...toolbarProps}/>
+      <Hidden xsUp={!visible}>
+        <Grid container direction='column' spacing={0}>
+          <Grid item>
+            <TableToolbar {...toolbarProps}/>
+          </Grid>
+          <Grid item>
+            <MaterialTableControl {...tableProps}/>
+          </Grid>
+          <Dialog
+            open={this.state.openConfirmDelete}
+            keepMounted
+            onClose={this.closeConfirmDeleteDialog}
+            aria-labelledby='alert-dialog-confirmdelete-title'
+            aria-describedby='alert-dialog-confirmdelete-description'
+          >
+            <DialogTitle id='alert-dialog-confirmdelete-title'>
+              {'Confirm Deletion'}
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id='alert-dialog-confirmdelete-description'>
+                Are you sure you want to delete the {selectedCount} selected objects?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.closeConfirmDeleteDialog} color='primary'>
+                No
+              </Button>
+              <Button onClick={this.confirmDelete} color='primary'>
+                Yes
+              </Button>
+            </DialogActions>
+          </Dialog>
         </Grid>
-        <Grid item>
-          <MaterialTableControl {...tableProps}/>
-        </Grid>
-        <Dialog
-          open={this.state.openConfirmDelete}
-          keepMounted
-          onClose={this.closeConfirmDeleteDialog}
-          aria-labelledby='alert-dialog-confirmdelete-title'
-          aria-describedby='alert-dialog-confirmdelete-description'
-        >
-          <DialogTitle id='alert-dialog-confirmdelete-title'>
-            {'Confirm Deletion'}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id='alert-dialog-confirmdelete-description'>
-              Are you sure you want to delete the {selectedCount} selected objects?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.closeConfirmDeleteDialog} color='primary'>
-              No
-            </Button>
-            <Button onClick={this.confirmDelete} color='primary'>
-              Yes
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </Grid>
+      </Hidden>
     );
   }
 

@@ -38,9 +38,11 @@ import {
   StatePropsOfControl
 } from '@mobx-jsonforms/core';
 import { Control, createPropsForItem } from '@mobx-jsonforms/react';
-import { DatePicker } from 'material-ui-pickers';
-import KeyboardArrowLeftIcon from 'material-ui-icons/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from 'material-ui-icons/KeyboardArrowRight';
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import DatePicker from 'material-ui-pickers/DatePicker';
+import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import * as moment from 'moment';
 import { Moment } from 'moment';
 import { inject, observer } from 'mobx-react';
@@ -92,31 +94,33 @@ export class MaterialDateControl extends Control<ControlProps & DateControl, Con
     }
 
     return (
-      <DatePicker
-        id={id}
-        label={computeLabel(labelText, required)}
-        error={!isValid}
-        style={style}
-        fullWidth={!trim}
-        helperText={!isValid ? errors : showDescription ? description : null}
-        InputLabelProps={{shrink: true}}
-        value={data || null}
-        onChange={ datetime =>
-          handleChange(path, datetime ? moment(datetime).format('YYYY-MM-DD') : '')
-        }
-        format={localeDateTimeFormat}
-        clearable={true}
-        disabled={!enabled}
-        autoFocus={uischema.options && uischema.options.focus}
-        onClear={() => handleChange(path, '')}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        cancelLabel={labelCancel}
-        clearLabel={labelClear}
-        leftArrowIcon={<KeyboardArrowLeftIcon />}
-        rightArrowIcon={<KeyboardArrowRightIcon />}
-        InputProps={inputProps}
-      />
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <DatePicker
+          id={id}
+          label={computeLabel(labelText, required)}
+          error={!isValid}
+          style={style}
+          fullWidth={!trim}
+          helperText={!isValid ? errors : showDescription ? description : null}
+          InputLabelProps={{shrink: true}}
+          value={data || null}
+          onChange={ datetime =>
+            handleChange(path, datetime ? moment(datetime).format('YYYY-MM-DD') : '')
+          }
+          format={localeDateTimeFormat}
+          clearable={true}
+          disabled={!enabled}
+          autoFocus={uischema.options && uischema.options.focus}
+          onClear={() => handleChange(path, '')}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          cancelLabel={labelCancel}
+          clearLabel={labelClear}
+          leftArrowIcon={<KeyboardArrowLeftIcon />}
+          rightArrowIcon={<KeyboardArrowRightIcon />}
+          InputProps={inputProps}
+        />
+      </MuiPickersUtilsProvider>
     );
   }
 }

@@ -24,7 +24,9 @@
 */
 import * as React from 'react';
 import * as _ from 'lodash';
-import { Card, CardContent, CardHeader } from 'material-ui';
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import CardHeader from '@material-ui/core/CardHeader'
 import {
   GroupLayout,
   mapStoreValuesToLayoutProps,

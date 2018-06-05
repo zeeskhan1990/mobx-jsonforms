@@ -24,9 +24,14 @@
 */
 import * as React from 'react';
 import * as _ from 'lodash';
-import Checkbox from 'material-ui/Checkbox';
-import Grid from 'material-ui/Grid';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Hidden from '@material-ui/core/Hidden';
 import {
     ControlElement,
     Paths
@@ -72,9 +77,11 @@ const TableContentCell = ({rowPath, cellProperty, cellPath, errors, scopedSchema
   return (
     <TableCell>
       <Grid container alignItems='center' justify='center' spacing={0}>
-        <Grid item xs={1} hidden={{smUp: cellErrors.length === 0}}>
+      <Hidden smUp={cellErrors.length === 0}>
+        <Grid item xs={1} >
           <ValidationIcon id={`tooltip-${cellPath}`} errorMessages={cellErrors}/>
         </Grid>
+      </Hidden>
         <Grid item xs>
           <DispatchField
             schema={scopedSchema}

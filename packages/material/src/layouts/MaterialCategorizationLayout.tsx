@@ -23,8 +23,9 @@
   THE SOFTWARE.
 */
 import * as React from 'react';
-import AppBar from 'material-ui/AppBar';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab'
 import {observer, inject} from 'mobx-react'
 import {
   and,
