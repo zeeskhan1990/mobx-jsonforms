@@ -5,9 +5,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider, observer } from 'mobx-react';
 import { materialFields, materialRenderers } from '@mobx-jsonforms/material-renderers';
+import {JsonForms} from '@mobx-jsonforms/react'
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester'
 import * as jsonformsCore from '@mobx-jsonforms/core';
+import { IJsonFormsStore } from '@mobx-jsonforms/core';
 
 const schema = {
   "type": "object",
@@ -103,7 +105,7 @@ const uischema = {
 }
 
 const data = {
-  name: 'S',
+  name: 'Send email to Adrian',
   description: 'Confirm if you have passed the subject\nHereby ...',
   done: true,
   recurrence: 'Daily',
@@ -112,7 +114,7 @@ const data = {
 
 //const jsonFormsStore: IJsonFormsStore =   jsonformsCore.initializeStore()
 
-const jsonFormsStore = jsonformsCore.activateStore(data, schema, uischema)
+const jsonFormsStore: IJsonFormsStore = jsonformsCore.activateStore(data, schema, uischema)
 jsonformsCore.setFields(materialFields, jsonFormsStore)
 jsonformsCore.setRenderers(materialRenderers, jsonFormsStore)
 jsonformsCore.registerRenderer(ratingControlTester, RatingControl, jsonFormsStore)
@@ -136,16 +138,20 @@ store.dispatch(Actions.init(data, schema, uischema)); */
 // Uncomment this line (and respective import) to register our custom renderer
 //store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
 
+const store = {}
 
-const RootComponent = observer(class RootComponent extends React.Component {
+const allStores = {...store, ...jsonFormsStore}
+
+@observer
+export class RootComponent extends React.Component {
   render() {
     return (
-      <Provider jsonFormsStore={jsonFormsStore}>
+      <Provider {...allStores}>
         <App />
       </Provider>
     );
   }
-})
+}
 
 
 DOM.render(
