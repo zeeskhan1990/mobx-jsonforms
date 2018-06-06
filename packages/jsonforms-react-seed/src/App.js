@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { getData } from '@mobx-jsonforms/core';
 import { JsonForms } from '@mobx-jsonforms/react';
 import { inject, observer } from 'mobx-react';
+import {schema, uischema} from './FormConfig'
 
 class App extends Component {
   render() {
     debugger
     const printedStore = JSON.stringify(this.props.jsonFormsStore, null, 2)
+    const data = this.props.jsonFormsStore.coreStore.extractData
     return (
       <div>
         <div className="App">
@@ -25,7 +26,8 @@ class App extends Component {
         </div>
 
         <div className="demoform">
-          <JsonForms />
+          <JsonForms schema={schema.basic} uischema={uischema.basic} path='basic'/>
+          <JsonForms schema={schema.address} uischema={uischema.address} path='address'/>
         </div>
       </div>
     );
@@ -34,9 +36,10 @@ class App extends Component {
 }
 
 export default inject('storeOne', 'storeTwo', 'jsonFormsStore')(observer(({storeOne, storeTwo, jsonFormsStore}) => {
+  debugger
   return (
     <div>
-      <App/>
+      <App storeOne={storeOne} storeTwo={storeTwo} jsonFormsStore={jsonFormsStore}/>
     </div>
   )
 }))

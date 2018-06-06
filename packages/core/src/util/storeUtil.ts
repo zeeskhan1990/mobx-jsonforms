@@ -33,13 +33,14 @@ import { CoreStore } from '../stores/core.store';
 import {TransformPropsStore} from '../stores/transformProps.store'
 
 export const initializeStore = (): IJsonFormsStore =>  {
-  return  {
+  const jsonFormsStore =   {
     rendererStore: new RendererStore(),
     fieldStore: new FieldStore(),
     coreStore: new CoreStore(),
     configStore: new ConfigStore(),
     transformPropsStore: new TransformPropsStore()
   }
+  return jsonFormsStore
 };
 
 export const activateStore = (
@@ -49,6 +50,11 @@ export const activateStore = (
   jsonFormsStore: IJsonFormsStore = initializeStore()
 ) : IJsonFormsStore =>  {
   jsonFormsStore.coreStore.initialize(data, schema, uischema)
+  return jsonFormsStore
+}
+
+export const setData = (data: Object, jsonFormsStore: IJsonFormsStore) : IJsonFormsStore => {
+  jsonFormsStore.coreStore.setData(data)
   return jsonFormsStore
 }
 

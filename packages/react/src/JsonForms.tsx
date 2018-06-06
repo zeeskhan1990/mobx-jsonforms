@@ -55,6 +55,7 @@ class JsonFormsRenderer extends React.Component<JsonFormsProps, null> {
 export class JsonForms extends React.Component<any, null>  {
   render() {
     const {jsonFormsStore, ...otherProps} = this.props
+    
     const effectiveProps = mapStoreValuesToRendererProps(jsonFormsStore, otherProps);
     return (
       <JsonFormsRenderer {...effectiveProps}/>

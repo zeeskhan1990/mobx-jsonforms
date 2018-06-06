@@ -93,7 +93,13 @@ export class CoreStore {
   }
 
   @action
+  setData = (data: Object) => {
+    this.data = data
+  }
+
+  @action
   initialize = (data, schema: JsonSchema, uischema: UISchemaElement) => {
+    debugger
     this.data = data
     this.schema = schema
     this.uischema = uischema
@@ -103,6 +109,7 @@ export class CoreStore {
 
   @action
   updateData = (path: string, updater: (any) => any) => {
+    debugger
     if (path === undefined || path === null) {
       //no-op;
     } else if (path === '') {
