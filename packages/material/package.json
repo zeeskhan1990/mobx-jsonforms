@@ -1,6 +1,6 @@
 {
   "name": "@mobx-jsonforms/material-renderers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Material Renderer Set for JSON Forms",
   "repository": "https://github.com/eclipsesource/jsonforms",
   "bugs": "https://github.com/eclipsesource/jsonforms/issues",
@@ -60,8 +60,8 @@
   "dependencies": {
     "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.1.0",
-    "@mobx-jsonforms/core": "^0.0.3",
-    "@mobx-jsonforms/react": "^0.0.3",
+    "@mobx-jsonforms/core": "^0.0.4",
+    "@mobx-jsonforms/react": "^0.0.4",
     "material-ui-pickers": "^1.0.0-rc.9",
     "mobx": "^4.1.0",
     "mobx-react": "^5.0.0",
